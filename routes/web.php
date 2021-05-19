@@ -24,3 +24,6 @@ Route::prefix('admin')
     Route::get('/', 'HomeController@index')
     ->name('admin-homepage');
 });
+
+Route::resource('/posts', 'HomeController')->middleware('auth');
+
