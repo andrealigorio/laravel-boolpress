@@ -8,8 +8,6 @@
                 <p>{{$post->content}}</p>
                 <p>Autore: <strong>{{$post->user->name}}</strong></p>
                 <p>Data: {{$post->user->created_at}}</p>
-                @dump($post)
-
             </div>
         </div>
     </div>
