@@ -27,8 +27,16 @@ Route::prefix('admin')
     ->namespace('Admin')
     ->middleware('auth')
     ->group(function () {
-    Route::get('/', 'HomeController@index')
-    ->name('admin-homepage');
+    Route::get('/', 'HomeController@index')->name('admin-homepage');
+    Route::resource('/posts', PostController::class)->names([
+        'index' => 'admin.posts.index',
+        'store' => 'admin.posts.store',
+        'show' => 'admin.posts.show',
+        'edit' => 'admin.posts.edit',
+        'update' => 'admin.posts.update',
+        'destroy' => 'admin.posts.destroy',
+        'create' => 'admin.posts.create'
+    ]);
 });
 
 
