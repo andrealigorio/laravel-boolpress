@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Tag;
+use App\Category;
 use illuminate\Support\Str;
 use illuminate\Support\Facades\Auth;
 
@@ -25,7 +26,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
-
+        
         return view('admin.posts.index', compact('posts'));
     }
 
@@ -37,7 +38,9 @@ class PostController extends Controller
     public function create()
     {
         $tags = Tag::all();
-        return view('admin.posts.create', compact('tags'));
+        $categories = Category::all();
+
+        return view('admin.posts.create', compact('tags', 'categories'));
     }
 
     /**
@@ -105,8 +108,9 @@ class PostController extends Controller
         }
 
         $tags = Tag::all();
+        $categories = Category::all();
 
-        return view('admin.posts.edit', compact('post', 'tags'));
+        return view('admin.posts.edit', compact('post', 'tags', 'categories'));
     }
 
     /**

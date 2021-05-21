@@ -38,7 +38,7 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
-                {{-- <div class="form-group">
+                <div class="form-group">
                     <label>Categoria</label>
                     <select class="form-control @error('category_id') is-invalid @enderror" name="category_id">
                         <option value="">-- seleziona categoria --</option>
@@ -51,7 +51,7 @@
                     @error('category_id')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
-                </div> --}}
+                </div>
                 <div class="form-group">
                     <p>Seleziona i tag:</p>
                     @foreach ($tags as $tag)
