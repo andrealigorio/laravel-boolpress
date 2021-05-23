@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>BoolPress</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -81,18 +81,13 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    BoolPress
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="{{ Auth::check() ? route('admin.posts.index') : route('posts.index')}}">Posts</a>
+                    <a href="{{ Auth::check() ? route('admin.categories.index') : route('categories.index')}}">Categorie</a>
+                    <a href="{{ Auth::check() ? route('admin.tags.index') : route('tags.index')}}">Tags</a>
                 </div>
             </div>
         </div>

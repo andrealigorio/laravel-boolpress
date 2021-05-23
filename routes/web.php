@@ -15,11 +15,13 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', 'HomeController@index')->name('guests-homepage');
-Route::get('/posts', 'PostController@index')->name('posts-index');
-Route::get('/post/{slug}', 'PostController@show')->name('posts-show');
-Route::get('/categories', 'CategoryController@index')->name('categories-index');
-Route::get('/categories/{slug}', 'CategoryController@show')->name('categories-show');
+Route::get('/', 'HomeController@index')->name('guests.homepage');
+Route::get('/posts', 'PostController@index')->name('posts.index');
+Route::get('/post/{slug}', 'PostController@show')->name('posts.show');
+Route::get('/categories', 'CategoryController@index')->name('categories.index');
+Route::get('/categories/{slug}', 'CategoryController@show')->name('categories.show');
+Route::get('/tags', 'TagController@index')->name('tags.index');
+Route::get('/tags/{slug}', 'TagController@show')->name('tags.show');
 
 Auth::routes();
 
@@ -27,7 +29,7 @@ Route::prefix('admin')
     ->namespace('Admin')
     ->middleware('auth')
     ->group(function () {
-    Route::get('/', 'HomeController@index')->name('admin-homepage');
+    Route::get('/', 'HomeController@index')->name('admin.homepage');
     Route::resource('/posts', PostController::class)->names([
         'index' => 'admin.posts.index',
         'store' => 'admin.posts.store',
@@ -43,7 +45,8 @@ Route::prefix('admin')
         'edit' => 'admin.categories.edit',
         'update' => 'admin.categories.update',
         'destroy' => 'admin.categories.destroy',
-        'create' => 'admin.categories.create'
+        'create' => 'admin.categories.create',
+        'show' => 'admin.categories.show'
     ]);
     Route::resource('/tags', TagController::class)->names([
         'index' => 'admin.tags.index',
@@ -51,7 +54,8 @@ Route::prefix('admin')
         'edit' => 'admin.tags.edit',
         'update' => 'admin.tags.update',
         'destroy' => 'admin.tags.destroy',
-        'create' => 'admin.tags.create'
+        'create' => 'admin.tags.create',
+        'show' => 'admin.tags.show'
     ]);
 });
 

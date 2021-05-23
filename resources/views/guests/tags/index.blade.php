@@ -4,12 +4,12 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1>Tutti i post</h1>
+                <h1>Tutti i tag</h1>
                 <ul>
-                    @foreach ($posts as $post)
+                    @foreach ($tags as $tag)
                         <li>
-                            <a href="{{route('posts.show', ['slug' => $post->slug])}}">
-                                {{$post->title}}
+                            <a href="{{route('tags.show', ['slug' => $tag->slug])}}">
+                                {{$tag->name}}
                             </a>
                         </li>
                     @endforeach

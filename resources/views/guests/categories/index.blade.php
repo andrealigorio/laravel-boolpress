@@ -4,11 +4,11 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1>Tutti le categorie</h1>
+                <h1>Tutte le categorie</h1>
                 <ul>
                     @foreach ($categories as $category)
                         <li>
-                            <a href="{{route('categories-show', ['slug' => $category->slug])}}">
+                            <a href="{{route('categories.show', ['slug' => $category->slug])}}">
                                 {{$category->name}}
                             </a>
                         </li>

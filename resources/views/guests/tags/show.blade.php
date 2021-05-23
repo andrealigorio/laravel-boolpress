@@ -4,9 +4,9 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1>{{$category->name}}</h1>
+                <h1>{{$tag->name}}</h1>
                 <ul>
-                    @foreach ($category->posts as $post)
+                    @foreach ($tag->posts as $post)
                     <li>
                         <a href="{{route('posts.show', ['slug' => $post->slug])}}">
                             {{$post->title}}
@@ -14,13 +14,6 @@
                     </li>
                     @endforeach
                 </ul>
-                {{-- <h1>{{$category->name}}</h1>
-                @foreach ($category->posts as $post)
-                    <h1>{{$post->title}}</h1>
-                    <p>{{$post->content}}</p>
-                    <p>Autore: <strong>{{$post->user->name}}</strong></p>
-                    <p>Data: {{$post->user->created_at}}</p>
-                @endforeach --}}
             </div>
         </div>
     </div>
