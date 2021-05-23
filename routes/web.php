@@ -37,6 +37,22 @@ Route::prefix('admin')
         'destroy' => 'admin.posts.destroy',
         'create' => 'admin.posts.create'
     ]);
+    Route::resource('/categories', CategoryController::class)->names([
+        'index' => 'admin.categories.index',
+        'store' => 'admin.categories.store',
+        'edit' => 'admin.categories.edit',
+        'update' => 'admin.categories.update',
+        'destroy' => 'admin.categories.destroy',
+        'create' => 'admin.categories.create'
+    ]);
+    Route::resource('/tags', TagController::class)->names([
+        'index' => 'admin.tags.index',
+        'store' => 'admin.tags.store',
+        'edit' => 'admin.tags.edit',
+        'update' => 'admin.tags.update',
+        'destroy' => 'admin.tags.destroy',
+        'create' => 'admin.tags.create'
+    ]);
 });
 
 

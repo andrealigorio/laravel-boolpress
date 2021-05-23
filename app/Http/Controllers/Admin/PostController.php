@@ -81,7 +81,7 @@ class PostController extends Controller
             $new_post->tags()->sync($data['tags']);
         }
 
-        return redirect()->route('admin.posts.index');
+        return redirect()->route('admin.posts.index')->with('status_create', 'Aggiunto nuovo post');
     }
 
     /**
@@ -127,7 +127,7 @@ class PostController extends Controller
         $this->valida($request);
 
         if($data['title'] != $post->title) {
-            $slug = Str::slug($post->title, '-');
+            $slug = Str::slug($data['title'], '-');
             $slug_appoggio = $slug;
     
             $post_attuale = Post::where('slug', $slug)->first();
@@ -149,7 +149,7 @@ class PostController extends Controller
             $post->tags()->sync([]);
         }
 
-        return redirect()->route('admin.posts.index');
+        return redirect()->route('admin.posts.index')->with('status_update', 'Post modificato');
     }
 
     /**
@@ -163,6 +163,6 @@ class PostController extends Controller
         $post->tags()->sync([]);
         $post->delete();
 
-        return redirect()->route('admin.posts.index');
+        return redirect()->route('admin.posts.index')->with('status_delete', 'Post eliminato');
     }
 }
