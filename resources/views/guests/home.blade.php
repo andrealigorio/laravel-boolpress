@@ -85,9 +85,9 @@
                 </div>
 
                 <div class="links">
-                    <a href="{{ Auth::check() ? route('admin.posts.index') : route('posts.index')}}">Posts</a>
-                    <a href="{{ Auth::check() ? route('admin.categories.index') : route('categories.index')}}">Categorie</a>
-                    <a href="{{ Auth::check() ? route('admin.tags.index') : route('tags.index')}}">Tags</a>
+                    <a href="{{route('posts.index')}}">Posts</a>
+                    <a href="{{route('categories.index')}}">Categorie</a>
+                    <a href="{{route('tags.index')}}">Tags</a>
                 </div>
             </div>
         </div>
