@@ -31,7 +31,16 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
-               
+                <div class="form-group">
+                    @if($post->image)
+                        <p>Immagine di copertina presente:</p>
+                        <img class="img-thumbnail" style="height:200px" src="{{ asset('storage/' . $post->image) }}" alt="">
+                    @else
+                        <p>Immagine di copertina non presente</p>
+                        <label for="image">Immagine copertina</label>
+                    @endif
+                    <input type="file" name="image" class="form-control-file">
+                </div>
                 <div class="form-group">
                     <label>Contenuto</label>
                     <textarea name="content" class="form-control @error('content') is-invalid @enderror" rows="10" placeholder="Inizia a scrivere qualcosa..." required>{{ old('content', $post->content) }}</textarea>

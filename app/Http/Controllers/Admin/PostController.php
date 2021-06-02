@@ -9,6 +9,7 @@ use App\Tag;
 use App\Category;
 use illuminate\Support\Str;
 use illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -75,6 +76,13 @@ class PostController extends Controller
 
         $new_post->user_id = Auth::id();
 
+        if(array_key_exists('image', $data)) {
+            $image_path = Storage::put('posts_image', $data['image']);
+            $data['image'] = $image_path;
+        }
+
+        $new_post->image = $data['image'];
+
         $new_post->save();
 
         if(array_key_exists('tags', $data)) {
@@ -140,6 +148,13 @@ class PostController extends Controller
             }
             $data['slug'] = $slug;
         }
+
+        if (array_key_exists('image', $data)) {
+            $image_path = Storage::put('posts_image', $data['image']);
+            $data['image'] = $image_path;
+        }
+
+        $post->image = $data['image'];
 
         $post->update($data);
 

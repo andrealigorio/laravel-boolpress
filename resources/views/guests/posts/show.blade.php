@@ -17,8 +17,8 @@
                 <dd>{{ $post->slug }}</dd>
                 <dt>Immagine di copertina:</dt>
                 <dd>
-                    @if($post->cover)
-                        <img src="{{ asset('storage/' . $post->cover) }}" alt="{{ $post->title }}">
+                    @if($post->image)
+                        <img class="img-thumbnail" style="height:400px" src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}">
                     @else
                         <p>copertina non presente</p>
                     @endif
@@ -35,6 +35,8 @@
                         -
                     @endforelse
                 </dd>
+                <dt>Scritto da:</dt>
+                <dd>{{ $post->user->name }}</dd>
             </dl>
         </div>
     </div>
