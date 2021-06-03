@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', 'HomeController@index')->name('guests.homepage');
+Route::get('/contacts/thanks', 'HomeController@thanks')->name('thanks');
+Route::get('/contacts', 'HomeController@contacts')->name('contacts');
+Route::post('/contacts', 'HomeController@contactSent')->name('contact.sent');
 Route::get('/posts', 'PostController@index')->name('posts.index');
 Route::get('/post/{slug}', 'PostController@show')->name('posts.show');
 Route::get('/categories', 'CategoryController@index')->name('categories.index');

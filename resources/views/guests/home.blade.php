@@ -88,6 +88,7 @@
                     <a href="{{route('posts.index')}}">Posts</a>
                     <a href="{{route('categories.index')}}">Categorie</a>
                     <a href="{{route('tags.index')}}">Tags</a>
+                    <a href="{{route('contacts')}}">Contattaci</a>
                 </div>
             </div>
         </div>
